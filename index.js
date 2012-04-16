@@ -42,7 +42,7 @@ function parseNDJ = function(req, options, fn){
       if (buf.length) {
 
         // regular expression to detect NDJ
-        var re  = new RegExp('} *[\r\n] *{');
+        var re  = new RegExp('} *[\r\n]+ *{');
 
         if (buf.match(re)) {      // is NDJ
           var bufArray = new Array();
