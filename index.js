@@ -10,7 +10,7 @@ newdelimma  = module.exports = {};
  * Intercepts 'application/json' requests
  */
 
-newdelimma.middleware = function (options){
+newdelimma.middleware = function(options){
   options = options || {};
   return function middleware(req, res, next) {
     if (req.body) return next();
@@ -29,7 +29,7 @@ newdelimma.middleware = function (options){
  * Parses both standard JSON and newline delimited JSON requests
  */
 
-function parseNDJ = function(req, options, fn){
+function parseNDJ(req, options, fn){
   var buf = '';
 
   handle = options.handle || 'record';
@@ -43,12 +43,13 @@ function parseNDJ = function(req, options, fn){
       if (buf.length) {
 
         // regular expression to detect NDJ
-        var re  = new RegExp('} *[\r\n]+ *{');
+        var re  = new RegExp('} *[\r\n]+ *{', 'g');
 
         if (buf.match(re)) {      // is NDJ
           var bufArray = new Array();
           var lines = buf.replace(re, '}\n{').split('\n');
           for (var i = 0, len = lines.length; i < len; i++) {
+            if ('' === lines[i].trim()) lines[i] = '{}';
             bufArray.push('"' + handle + i + '": ' + lines[i]);
           }
           req.body = JSON.parse('{' + bufArray.join(', ') + '}');
