@@ -32,6 +32,7 @@ newdelimma.middleware = function (options){
 function parseNDJ = function(req, options, fn){
   var buf = '';
 
+  handle = options.handle || 'record';
   req.setEncoding('utf8');
 
   // aggregate all information in the request
@@ -48,7 +49,7 @@ function parseNDJ = function(req, options, fn){
           var bufArray = new Array();
           var lines = buf.replace(re, '}\n{').split('\n');
           for (var i = 0, len = lines.length; i < len; i++) {
-            bufArray.push('"record' + i + '": ' + lines[i]);
+            bufArray.push('"' + handle + i + '": ' + lines[i]);
           }
           req.body = JSON.parse('{' + bufArray.join(', ') + '}');
         } else {                  // is standard JSON

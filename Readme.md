@@ -26,6 +26,8 @@ are instead converted to
 			record2:	{ "fieldA": "valueA", "fieldB": "valueB", "fieldC": "valueC" }
 		}
 
+"record" can be changed by passing { handle: "mycustomrecord" } as an option
+
 ## Usage
 
 Should come BEFORE bodyParser in the express middleware stack (listed in CoffeeScript below):
