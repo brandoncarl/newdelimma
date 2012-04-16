@@ -10,6 +10,7 @@
     "connect": ">=1 <2"
   },
   "repository": {
-    "type": "git"
+    "type": "git",
+    "url": "git://github.com/brandoncarl/newdelimma.git"
   }
 }
