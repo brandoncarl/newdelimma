@@ -4,8 +4,8 @@
   "keywords": ["newline-delimited JSON", "connect", "NDJ"],
   "version": "0.0.1",
   "author": "Brandon Carl <brandonjcarl@yahoo.com>",
-  "main": "./index.js",
-  "engines": { "node": ">= 0.2.0" },
+  "main": "index",
+  "engines": { "node": ">= 0.6.0" },
   "dependencies" : {
     "connect": ">=1 <2"
   },
