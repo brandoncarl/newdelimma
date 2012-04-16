@@ -28,6 +28,10 @@ are instead converted to
 
 "record" can be changed by passing { handle: "mycustomrecord" } as an option
 
+Multiple newlines are compressed into one: i.e. `{...}\n\n\n{...}` splits into 2 records (none blank).
+
+Meanwhile, spaces BETWEEN newlines BETWEEN records are treated as blank records: `{...}\n \n\n{...}` splits into 3 records (the middle blank).
+
 ## Usage
 
 Should come BEFORE bodyParser in the express middleware stack (listed in CoffeeScript below):
