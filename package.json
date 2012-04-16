@@ -1,0 +1,15 @@
+{
+  "name": "newdelimma",
+  "description": "Newline-delimited JSON (NDJ) middleware for Connect/Express",
+  "keywords": ["newline-delimited JSON", "connect", "NDJ"],
+  "version": "0.0.1",
+  "author": "Brandon Carl <brandonjcarl@yahoo.com>",
+  "main": "./index.js",
+  "engines": { "node": ">= 0.2.0" },
+  "dependencies" : {
+    "connect": ">=1 <2"
+  },
+  "repository": {
+    "type": "git"
+  }
+}
